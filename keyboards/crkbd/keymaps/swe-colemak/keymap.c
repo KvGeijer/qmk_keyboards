@@ -22,12 +22,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // From the guide at https://getreuer.info/posts/keyboards/custom-shift-keys/index.html
 const custom_shift_key_t custom_shift_keys[] = {
-  {SE_COMM, SE_LABK}, // Shift , is
-  {SE_DOT , SE_RABK}, // Shift . is
-  {SE_SLSH, SE_QUES}, // Shift / is
-  {SE_MINS, SE_UNDS}, // Shift - is
-  {SE_SCLN, SE_COLN}, // Shift ; is
-  {SE_QUOT, SE_DQUO}, // Shift ' is
+  {SE_COMM, SE_LABK}, // Shift , is <
+  {SE_DOT , SE_RABK}, // Shift . is >
+  {SE_SLSH, SE_QUES}, // Shift / is ?
+  {SE_MINS, SE_UNDS}, // Shift - is _
+  {SE_SCLN, SE_COLN}, // Shift ; is :
+  {SE_QUOT, SE_DQUO}, // Shift ' is "
 };
 
 uint8_t NUM_CUSTOM_SHIFT_KEYS =
@@ -35,6 +35,12 @@ uint8_t NUM_CUSTOM_SHIFT_KEYS =
 
 // Space when tapped, or move to layer 1 when held
 #define LT_1_SPC LT(1, KC_SPC)
+
+// Alpha layer z x c v should behave like ctl
+#define CTL_Z LCTL(KC_Z)
+#define CTL_X LCTL(KC_X)
+#define CTL_C LCTL(KC_C)
+#define CTL_V LCTL(KC_V)
 
 // TODO: ^ and ~ require space after to not compose in swedish layout
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -57,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LCTL, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, KC_LEFT, KC_DOWN,   KC_UP,KC_RIGHT, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+      KC_LSFT,   CTL_Z,   CTL_X,   CTL_C,   CTL_V, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           KC_LALT, _______,  KC_SPC,     KC_ESC,   MO(3), KC_DEL
                                       //`--------------------------'  `--------------------------'
