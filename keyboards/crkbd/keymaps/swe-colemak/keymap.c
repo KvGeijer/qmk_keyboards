@@ -33,9 +33,11 @@ const custom_shift_key_t custom_shift_keys[] = {
 uint8_t NUM_CUSTOM_SHIFT_KEYS =
     sizeof(custom_shift_keys) / sizeof(custom_shift_key_t);
 
-// Space when tapped, or move to layer 1 when held
-#define LT_1_SPC LT(1, KC_SPC)
-#define LT_3_SPC LT(3, KC_SPC)
+// ESC when tapped, or change layer when held
+#define LT_1_ESC LT(1, KC_ESC)
+#define LT_3_ESC LT(3, KC_ESC)
+
+#define LT_2_GUI LT(2, KC_LGUI)
 
 // Alpha layer z x c v should behave like ctl
 #define CTL_Z LCTL(KC_Z)
@@ -53,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_K,    KC_M, KC_COMM,  SE_DOT, SE_SLSH, SE_MINS,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LALT,LT_1_SPC,  KC_ESC,     KC_ENT,   MO(2), KC_DEL
+                                          KC_LALT,LT_1_ESC,  KC_SPC,     KC_ENT,LT_2_GUI, KC_DEL
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -66,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       CW_TOGG,   CTL_Z,   CTL_X,   CTL_C,   CTL_V, XXXXXXX,                      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI, _______,  KC_ESC,     KC_ENT,   MO(3), KC_DEL
+                                          KC_LGUI, _______,  KC_SPC,     KC_ENT,   MO(3), KC_DEL
                                       //`--------------------------'  `--------------------------'
   ),
 
@@ -78,7 +80,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                      SE_UNDS, SE_PLUS, SE_PIPE, SE_LCBR, SE_RCBR, SE_TILD,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,LT_3_SPC,  KC_ESC,     KC_ENT, _______, KC_DEL
+                                          KC_LGUI,LT_3_ESC,  KC_SPC,     KC_ENT, _______, KC_DEL
                                       //`--------------------------'  `--------------------------'
   ),
 
